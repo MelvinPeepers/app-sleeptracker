@@ -19,7 +19,7 @@ export function login(username, password) {
         password
       })
       .then(response => {
-        localStorage.setItem("token", response.data.payload);
+        localStorage.setItem("token", response.data.token);
         dispatch({ type: LOGIN_SUCCESS });
       })
       .catch(error => {
