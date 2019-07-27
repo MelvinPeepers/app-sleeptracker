@@ -5,7 +5,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <h2>Sleep Tracker</h2>
+        <h2>Sleep Tracker Homepage</h2>
       </div>
     );
   }
