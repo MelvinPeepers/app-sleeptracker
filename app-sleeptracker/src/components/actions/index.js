@@ -14,7 +14,7 @@ export function login(username, password) {
     dispatch({ type: LOGIN_START });
 
     return axios
-      .post("https://sleeptrack.herokuapp.com/api/login", {
+      .post("https://sleeptracker-pt-july.herokuapp.com/api/login", {
         username,
         password
       })
