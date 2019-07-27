@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loggingIn: false,
-        errorMessage: action.payload.message
+        errorMessage: action.payload.Error
       };
     }
     default:
