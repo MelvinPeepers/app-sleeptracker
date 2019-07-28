@@ -9,6 +9,7 @@ import {
 
 const initialState = {
   loggingIn: false,
+  signingUp: false,
   errorMessage: null
 };
 
@@ -37,20 +38,20 @@ const reducer = (state = initialState, action) => {
     case REG_START: {
       return {
         state,
-        logginIn: true
+        signingUp: true
       };
     }
     case REG_SUCCESS: {
       return {
         ...state,
-        logginIn: false,
+        signingUp: false,
         errorMessage: null
       };
     }
     case REG_FAILED: {
       return {
         ...state,
-        logginIn: false,
+        signingUp: false,
         errorMessage: action.payload.Error
       };
     }

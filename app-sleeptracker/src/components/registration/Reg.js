@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { signup } from "../actions";
 
 class Reg extends Component {
   constructor() {
@@ -10,7 +13,7 @@ class Reg extends Component {
     };
   }
 
-  handleChange = event => {
+  handleChangeReg = event => {
     event.preventDefault();
 
     this.setState({
@@ -18,7 +21,7 @@ class Reg extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmitReg = event => {
     event.preventDefault();
 
     const { username, password, birthdate } = this.state;
@@ -26,7 +29,7 @@ class Reg extends Component {
     this.props
       .signup(username, password, birthdate)
       .then(() => {
-        this.props.history.push("");
+        this.props.history.push("/login");
       })
       .catch(error => {
         console.log(error);
@@ -34,20 +37,60 @@ class Reg extends Component {
   };
 
   render() {
+    const { username, password, birthdate } = this.state;
+    const { signingUp } = this.props;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmitReg}>
           <input
             type='text'
             name='username'
             placeholder='username'
             value={username}
-            onChange={this.handleChange}
+            onChange={this.handleChangeReg}
           />
+          <br />
+          <input
+            type='text'
+            name='password'
+            placeholder='password'
+            value={password}
+            onChange={this.handleChangeReg}
+          />
+          <br />
+          <input
+            type='text'
+            name='birthdate'
+            placeholder='birthdate'
+            value={birthdate}
+            onChange={this.handleChangeReg}
+          />
+          <br />
+          {signingUp ? (
+            <p>Creating account...</p>
+          ) : (
+            <button type='submit'>Signup</button>
+          )}
         </form>
       </div>
     );
   }
 }
 
-export default Reg;
+const mapStateToProps = state => {
+  return {
+    signingUp: state.signingUp,
+    errorMessage: state.errorMessage
+  };
+};
+
+const mapDispatchToProps = {
+  signup
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Reg)
+);
