@@ -11,8 +11,8 @@ function App() {
   return (
     <div className='App'>
       <PrivateRoute exact path='/' component={Dashboard} />
-      <Route exact path='/login' component={Login} />
       <Route exact path='/signup' component={Reg} />
+      <Route exact path='/login' component={Login} />
     </div>
   );
 }

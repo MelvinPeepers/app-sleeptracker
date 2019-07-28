@@ -61,7 +61,7 @@ class Reg extends Component {
           <input
             type='text'
             name='birthdate'
-            placeholder='birthdate'
+            placeholder='year-mm-dd'
             value={birthdate}
             onChange={this.handleChangeReg}
           />
