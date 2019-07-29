@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login/Login";
-import Reg from "./components/registration/Reg";
+import Registration from "./components/registration/Registration";
 
 import "./App.css";
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className='App'>
       <PrivateRoute exact path='/' component={Dashboard} />
-      <Route exact path='/signup' component={Reg} />
+      <Route exact path='/signup' component={Registration} />
       <Route exact path='/login' component={Login} />
     </div>
   );
