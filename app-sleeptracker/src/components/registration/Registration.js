@@ -26,14 +26,12 @@ class Reg extends Component {
 
     const { username, password, birthdate } = this.state;
 
-    this.props
-      .signup(username, password, birthdate)
-      .then(() => {
-        this.props.history.push("/login");
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.props.signup(username, password, birthdate).then(() => {
+      this.props.history.push("/login");
+    });
+    .catch(error => {
+      console.log(error);
+    });
   };
 
   render() {
