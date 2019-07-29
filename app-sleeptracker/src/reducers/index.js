@@ -1,11 +1,15 @@
 import {
   LOGIN_START,
   LOGIN_SUCCESS,
-  LOGIN_FAILED
+  LOGIN_FAILED,
+  REG_START,
+  REG_SUCCESS,
+  REG_FAILED
 } from "../components/actions";
 
 const initialState = {
   loggingIn: false,
+  signingUp: false,
   errorMessage: null
 };
 
@@ -28,6 +32,26 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loggingIn: false,
+        errorMessage: action.payload.Error
+      };
+    }
+    case REG_START: {
+      return {
+        state,
+        signingUp: true
+      };
+    }
+    case REG_SUCCESS: {
+      return {
+        ...state,
+        signingUp: false,
+        errorMessage: null
+      };
+    }
+    case REG_FAILED: {
+      return {
+        ...state,
+        signingUp: false,
         errorMessage: action.payload.Error
       };
     }

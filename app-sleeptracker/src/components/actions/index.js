@@ -8,6 +8,10 @@ export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILED = "LOGIN_FAILED";
 
+export const REG_START = "REG_START";
+export const REG_SUCCESS = "REG_SUCCESS";
+export const REG_FAILED = "REG_FAILED";
+
 // login
 export function login(username, password) {
   return dispatch => {
@@ -25,6 +29,26 @@ export function login(username, password) {
       .catch(error => {
         const payload = error.response ? error.response.data : error;
         dispatch({ type: LOGIN_FAILED, payload });
+      });
+  };
+}
+
+// registration
+export function signup(username, password, birthdate) {
+  return dispatch => {
+    dispatch({ type: REG_START });
+
+    return axios
+      .post("https://sleeptracker-pt-july.herokuapp.com/api/register", {
+        username,
+        password,
+        birthdate
+      })
+      .then(response => {
+        dispatch({ type: REG_SUCCESS, payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: REG_FAILED, payload: error.response });
       });
   };
 }
