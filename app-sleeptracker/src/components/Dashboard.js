@@ -1,11 +1,12 @@
 import React from "react";
-// import { connect } from "react-redux";
+// import Home from "./home/Home";
+import User from "./home/User";
 
 class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <h2>Sleep Tracker Homepage</h2>
+        <User />
       </div>
     );
   }

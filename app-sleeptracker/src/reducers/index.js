@@ -4,10 +4,15 @@ import {
   LOGIN_FAILED,
   REG_START,
   REG_SUCCESS,
-  REG_FAILED
+  REG_FAILED,
+  FETCHING_USER,
+  FETCHING_USER_SUCCESS,
+  FETCHING_USER_FAILED
 } from "../components/actions";
 
 const initialState = {
+  user: [],
+  fetchingUser: false,
   loggingIn: false,
   signingUp: false,
   errorMessage: null
@@ -53,6 +58,27 @@ const reducer = (state = initialState, action) => {
         ...state,
         signingUp: false,
         errorMessage: action.payload.Error
+      };
+    }
+    case FETCHING_USER: {
+      return {
+        ...state,
+        fetchingUser: true,
+        errorMessage: null
+      };
+    }
+    case FETCHING_USER_SUCCESS: {
+      return {
+        ...state,
+        fetchingUser: false,
+        errorMessage: "",
+        user: action.payload
+      };
+    }
+    case FETCHING_USER_FAILED: {
+      return {
+        fetchingUser: false,
+        errorMessage: action.payload
       };
     }
     default:

@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./components/Dashboard";
-import Login from "./components/Login/Login";
+import Login from "./components/login/Login";
 import Registration from "./components/registration/Registration";
 
 import "./App.css";
