@@ -10,13 +10,7 @@ class Home extends Component {
           <h3>Welcome to your Sleep Tracker Data</h3>
         </div>
         <div>
-          <p>Add your sleep hours:</p>
-        </div>
-        <div>
-          <p>Delete your sleep hours:</p>
-        </div>
-        <div>
-          <p>Rate your sleep</p>
+          <p>This is how you slept this week</p>
         </div>
       </div>
     );

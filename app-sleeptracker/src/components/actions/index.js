@@ -28,6 +28,7 @@ export function login(username, password) {
       })
       .then(response => {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("id", response.data.id);
         dispatch({ type: LOGIN_SUCCESS });
       })
       .catch(error => {
@@ -68,9 +69,14 @@ export function fetchUser() {
     };
 
     axios
-      .get("https://sleeptracker-pt-july.herokuapp.com/api/user/26", {
-        headers
-      })
+      .get(
+        `https://sleeptracker-pt-july.herokuapp.com/api/user/${localStorage.getItem(
+          "id"
+        )}`,
+        {
+          headers
+        }
+      )
       .then(response => {
         dispatch({ type: FETCHING_USER_SUCCESS, payload: response.data });
       })

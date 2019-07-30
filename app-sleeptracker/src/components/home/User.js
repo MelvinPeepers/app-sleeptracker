@@ -24,7 +24,16 @@ class User extends Component {
     return (
       <div>
         <h1>Welcome</h1>
-        <p>Name:{user.username}</p>
+        <p>Name: {user.username}</p>
+        <div>
+          <p>Add your sleep hours:</p>
+        </div>
+        <div>
+          <p>Delete your sleep hours:</p>
+        </div>
+        <div>
+          <p>Rate your sleep</p>
+        </div>
       </div>
     );
   }
