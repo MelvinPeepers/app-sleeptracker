@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchUser } from "../actions";
+import { fetchUser, addData } from "../actions";
 import { Link } from "react-router-dom";
 
 class User extends Component {
@@ -23,6 +23,22 @@ class User extends Component {
   changeHandle = event => {
     event.preventDefault();
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  addData = event => {
+    event.preventDefault();
+
+    const newData = this.state;
+    this.props.addData(newData);
+    this.setState({
+      userID: localStorage.getItem("id"),
+      start: "",
+      end: "",
+      hours: 0,
+      bed_t_rating: "",
+      work_t_rating: "",
+      average_rating: ""
+    });
   };
 
   render() {
@@ -101,6 +117,10 @@ class User extends Component {
           {console.log(this.state)}
           <p>Select between 1 - 5, 5 being Highest</p>
           <p>My Rating {average_rating}</p>
+          <button className='add-btn' onClick={this.addData}>
+            Add data
+          </button>
+          <br />
           <Link to='/home'>Home</Link>
         </form>
       </div>
@@ -117,5 +137,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchUser }
+  { fetchUser, addData }
 )(User);

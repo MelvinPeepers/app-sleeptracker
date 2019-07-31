@@ -16,6 +16,10 @@ export const FETCHING_USER = "FETCHING_USER";
 export const FETCHING_USER_SUCCESS = "FETCHING_USER_SUCCESS";
 export const FETCHING_USER_FAILED = "FETCHING_USER_FAILED";
 
+export const ADD_USER_DATA = "ADD_USER_DATA";
+export const ADD_USER_DATA_SUCCESS = "ADD_USER_DATA_SUCCESS";
+export const ADD_USER_DATA_FAILED = "ADD_USER_DATA_FAILED";
+
 // login
 export function login(username, password) {
   return dispatch => {
@@ -82,6 +86,32 @@ export function fetchUser() {
       })
       .catch(error => {
         dispatch({ type: FETCHING_USER_FAILED, payload: error.response });
+      });
+  };
+}
+
+// Add data
+
+export function addData(newData) {
+  return dispatch => {
+    dispatch({ type: ADD_USER_DATA });
+
+    const headers = {
+      "Content-Type": "application/json",
+      authorize: localStorage.getItem("token")
+    };
+
+    axios
+      .post(
+        "https://sleeptracker-pt-july.herokuapp.com/api/sleepData",
+        newData,
+        { headers }
+      )
+      .then(response => {
+        dispatch({ ADD_USER_DATA_SUCCESS, payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: ADD_USER_DATA_FAILED, payload: error.response });
       });
   };
 }

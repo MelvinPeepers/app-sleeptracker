@@ -7,7 +7,10 @@ import {
   REG_FAILED,
   FETCHING_USER,
   FETCHING_USER_SUCCESS,
-  FETCHING_USER_FAILED
+  FETCHING_USER_FAILED,
+  ADD_USER_DATA,
+  ADD_USER_DATA_SUCCESS,
+  ADD_USER_DATA_FAILED
 } from "../components/actions";
 
 const initialState = {
@@ -77,6 +80,31 @@ const reducer = (state = initialState, action) => {
     }
     case FETCHING_USER_FAILED: {
       return {
+        fetchingUser: false,
+        errorMessage: action.payload
+      };
+    }
+    case ADD_USER_DATA: {
+      console.log("add data");
+      return {
+        ...state,
+        fetchingUser: true,
+        errorMessage: false
+      };
+    }
+    case ADD_USER_DATA_SUCCESS: {
+      console.log("add data");
+      return {
+        ...state,
+        fetchingUser: false,
+        user: action.payload,
+        errorMessage: ""
+      };
+    }
+    case ADD_USER_DATA_FAILED: {
+      console.log("add data");
+      return {
+        ...state,
         fetchingUser: false,
         errorMessage: action.payload
       };
