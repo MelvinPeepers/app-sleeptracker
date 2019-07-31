@@ -70,6 +70,7 @@ class User extends Component {
           {/* {console.log(this.state)} */}
           <br />
           <p>Select between 1 - 5, 5 being Highest</p>
+          <p>My Rating {bed_t_rating}</p>
           <h4>Work Rating</h4>
           <select
             name='work_t_rating'
@@ -83,6 +84,7 @@ class User extends Component {
             <option value='5'>5</option>
           </select>
           <p>Select between 1 - 5, 5 being Highest</p>
+          <p>My Rating {work_t_rating}</p>
           <br />
           <h4>Average Rating</h4>
           <select
@@ -98,6 +100,7 @@ class User extends Component {
           </select>
           {console.log(this.state)}
           <p>Select between 1 - 5, 5 being Highest</p>
+          <p>My Rating {average_rating}</p>
           <Link to='/home'>Home</Link>
         </form>
       </div>
