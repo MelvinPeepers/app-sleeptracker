@@ -1,12 +1,11 @@
 import React from "react";
-// import Home from "./home/Home";
-import User from "./home/User";
+import Home from "./home/Home";
 
 class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <User />
+        <Home />
       </div>
     );
   }

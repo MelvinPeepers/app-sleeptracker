@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 // import User from "./User";
 
 class Home extends Component {
@@ -12,6 +13,7 @@ class Home extends Component {
         <div>
           <p>This is how you slept this week</p>
         </div>
+        <Link to='/user'>User Profile</Link>
       </div>
     );
   }

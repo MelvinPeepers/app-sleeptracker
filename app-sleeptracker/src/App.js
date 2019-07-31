@@ -4,6 +4,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/login/Login";
 import Registration from "./components/registration/Registration";
+import User from "./components/home/User";
 
 import "./App.css";
 
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className='App'>
       <PrivateRoute exact path='/' component={Dashboard} />
+      <PrivateRoute exact path='/user' component={User} />
       <Route exact path='/signup' component={Registration} />
       <Route exact path='/login' component={Login} />
     </div>
