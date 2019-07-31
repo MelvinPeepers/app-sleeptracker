@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { signup } from "../actions";
+import { Link } from "react-router-dom";
 
 class Reg extends Component {
   constructor() {
@@ -42,6 +43,7 @@ class Reg extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmitReg}>
+          <h2>Register a Sleep Tracker account</h2>
           <input
             type='text'
             name='username'
@@ -71,6 +73,9 @@ class Reg extends Component {
           ) : (
             <button type='submit'>Signup</button>
           )}
+          <br />
+          <p>Already have an account?</p>
+          <Link to='/login'>Login</Link>
         </form>
       </div>
     );

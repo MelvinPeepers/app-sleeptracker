@@ -93,7 +93,7 @@ class User extends Component {
             <option value='4'>4</option>
             <option value='5'>5</option>
           </select>
-          {console.log(this.state)}
+          {/* {console.log(this.state)} */}
           <p>Select between 1 - 5, 5 being Highest</p>
         </form>
       </div>
