@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchUser } from "../actions";
+import { Link } from "react-router-dom";
 
 class User extends Component {
   state = {
@@ -28,7 +29,6 @@ class User extends Component {
     const {
       start,
       end,
-      hours,
       bed_t_rating,
       work_t_rating,
       average_rating
@@ -55,6 +55,7 @@ class User extends Component {
             placeholder='End Time: hour:minutes am/pm'
           />
           <br />
+          <h4>Bed Rating</h4>
           <select
             name='bed_t_rating'
             value={bed_t_rating}
@@ -69,6 +70,7 @@ class User extends Component {
           {/* {console.log(this.state)} */}
           <br />
           <p>Select between 1 - 5, 5 being Highest</p>
+          <h4>Work Rating</h4>
           <select
             name='work_t_rating'
             value={work_t_rating}
@@ -82,6 +84,7 @@ class User extends Component {
           </select>
           <p>Select between 1 - 5, 5 being Highest</p>
           <br />
+          <h4>Average Rating</h4>
           <select
             name='average_rating'
             value={average_rating}
@@ -93,8 +96,9 @@ class User extends Component {
             <option value='4'>4</option>
             <option value='5'>5</option>
           </select>
-          {/* {console.log(this.state)} */}
+          {console.log(this.state)}
           <p>Select between 1 - 5, 5 being Highest</p>
+          <Link to='/home'>Home</Link>
         </form>
       </div>
     );
