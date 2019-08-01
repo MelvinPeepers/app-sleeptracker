@@ -17,7 +17,7 @@ class User extends Component {
   componentDidMount() {
     // call our action to get data here from index (action)
     this.props.fetchUser();
-    // console.log(fetchUser);
+    console.log(fetchUser);
   }
 
   changeHandle = event => {
@@ -116,7 +116,7 @@ class User extends Component {
             <option value='4'>4</option>
             <option value='5'>5</option>
           </select>
-          {console.log(this.state)}
+          {/* {console.log(this.state)} */}
           <p>Select between 1 - 5, 5 being Highest</p>
           <p>My Rating {average_rating}</p>
           <button className='add-btn' onClick={this.addData}>
@@ -133,7 +133,8 @@ class User extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    fetchingUser: state.fetchingUser
+    fetchingUser: state.fetchingUser,
+    deletingData: state.deletingData
   };
 };
 
