@@ -10,7 +10,10 @@ import {
   FETCHING_USER_FAILED,
   ADD_USER_DATA,
   ADD_USER_DATA_SUCCESS,
-  ADD_USER_DATA_FAILED
+  ADD_USER_DATA_FAILED,
+  DELETE_USER_DATA,
+  DELETE_USER_DATA_SUCCESS,
+  DELETE_USER_DATA_FAILED
 } from "../components/actions";
 
 const initialState = {
@@ -18,6 +21,8 @@ const initialState = {
   fetchingUser: false,
   loggingIn: false,
   signingUp: false,
+  addingData: false,
+  deletingData: false,
   errorMessage: null
 };
 
@@ -85,7 +90,7 @@ const reducer = (state = initialState, action) => {
       };
     }
     case ADD_USER_DATA: {
-      console.log("add data");
+      // console.log("add data user");
       return {
         ...state,
         fetchingUser: true,
@@ -93,7 +98,7 @@ const reducer = (state = initialState, action) => {
       };
     }
     case ADD_USER_DATA_SUCCESS: {
-      console.log("add data");
+      // console.log("add data success");
       return {
         ...state,
         fetchingUser: false,
@@ -102,10 +107,31 @@ const reducer = (state = initialState, action) => {
       };
     }
     case ADD_USER_DATA_FAILED: {
-      console.log("add data");
+      // console.log("add data failed");
       return {
         ...state,
         fetchingUser: false,
+        errorMessage: action.payload
+      };
+    }
+    case DELETE_USER_DATA: {
+      return {
+        ...state,
+        deletingData: true
+      };
+    }
+    case DELETE_USER_DATA_SUCCESS: {
+      return {
+        ...state,
+        deletingData: false,
+        user: action.payload,
+        errorMessage: ""
+      };
+    }
+    case DELETE_USER_DATA_FAILED: {
+      return {
+        ...state,
+        deletingData: false,
         errorMessage: action.payload
       };
     }

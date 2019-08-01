@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchUser, addData } from "../actions";
+import { fetchUser, addData, deleteData } from "../actions";
 import { Link } from "react-router-dom";
 
 class User extends Component {
   state = {
-    userID: localStorage.getItem("id"),
+    userId: localStorage.getItem("id"),
     start: "",
     end: "",
     hours: 0,
@@ -31,7 +31,7 @@ class User extends Component {
     const newData = this.state;
     this.props.addData(newData);
     this.setState({
-      userID: localStorage.getItem("id"),
+      userId: localStorage.getItem("id"),
       start: "",
       end: "",
       hours: 0,
@@ -40,6 +40,8 @@ class User extends Component {
       average_rating: ""
     });
   };
+
+  deleteData = id => {};
 
   render() {
     const {
@@ -137,5 +139,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchUser, addData }
+  { fetchUser, addData, deleteData }
 )(User);

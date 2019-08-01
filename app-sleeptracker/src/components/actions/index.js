@@ -20,6 +20,10 @@ export const ADD_USER_DATA = "ADD_USER_DATA";
 export const ADD_USER_DATA_SUCCESS = "ADD_USER_DATA_SUCCESS";
 export const ADD_USER_DATA_FAILED = "ADD_USER_DATA_FAILED";
 
+export const DELETE_USER_DATA = "DELETE_USER_DATA";
+export const DELETE_USER_DATA_SUCCESS = "DELETE_USER_DATA_SUCCESS";
+export const DELETE_USER_DATA_FAILED = "DELETE_USER_DATA_FAILED";
+
 // login
 export function login(username, password) {
   return dispatch => {
@@ -91,8 +95,8 @@ export function fetchUser() {
 }
 
 // Add data
-
 export function addData(newData) {
+  // console.log(newData);
   return dispatch => {
     dispatch({ type: ADD_USER_DATA });
 
@@ -108,10 +112,38 @@ export function addData(newData) {
         { headers }
       )
       .then(response => {
-        dispatch({ ADD_USER_DATA_SUCCESS, payload: response.data });
+        // console.log(response.data);
+        dispatch({ type: ADD_USER_DATA_SUCCESS, payload: response.data });
       })
       .catch(error => {
+        // console.log(error);
         dispatch({ type: ADD_USER_DATA_FAILED, payload: error.response });
+      });
+  };
+}
+
+// Delete Data
+export function deleteData(id) {
+  return dispatch => {
+    dispatch({ type: DELETE_USER_DATA });
+
+    const headers = {
+      "Content-Type": "application/json",
+      authorize: localStorage.getItem("token")
+    };
+
+    return axios
+      .delete(
+        `https://sleeptracker-pt-july.herokuapp.com/api/sleepData/${id}`,
+        {
+          headers
+        }
+      )
+      .then(response => {
+        dispatch({ type: DELETE_USER_DATA_SUCCESS, payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: DELETE_USER_DATA_FAILED, payload: error.response });
       });
   };
 }
