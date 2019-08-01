@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../actions";
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
   constructor() {
@@ -40,6 +41,7 @@ class Login extends React.Component {
     const { loggingIn, errorMessage } = this.props;
     return (
       <form onSubmit={this.handleSubmit}>
+        <h2>Login to your Sleep Tracker account</h2>
         {errorMessage && <p className='errorMessage'>{errorMessage}</p>}
         <input
           type='text'
@@ -62,6 +64,9 @@ class Login extends React.Component {
         ) : (
           <button type='submit'>Login</button>
         )}
+        <br />
+        <p>Need an account?</p>
+        <Link to='/signup'>Register here</Link>
       </form>
     );
   }
