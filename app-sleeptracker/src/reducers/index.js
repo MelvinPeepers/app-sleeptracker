@@ -17,7 +17,7 @@ import {
   EDIT_USER_DATA,
   EDIT_USER_DATA_SUCCESS,
   EDIT_USER_DATA_FAILED
-} from "../components/actions";
+} from "../actions";
 
 const initialState = {
   user: [],
@@ -26,7 +26,7 @@ const initialState = {
   signingUp: false,
   addingData: false,
   deletingData: false,
-  editData: false,
+  editingData: false,
   errorMessage: null,
   start: 0,
   end: 0
@@ -148,13 +148,13 @@ const reducer = (state = initialState, action) => {
     case EDIT_USER_DATA: {
       return {
         ...state,
-        editData: true
+        editingData: true
       };
     }
     case EDIT_USER_DATA_SUCCESS: {
       return {
         ...state,
-        editData: false,
+        editingData: false,
         user: action.payload,
         errorMessage: action.payload
       };
@@ -162,7 +162,7 @@ const reducer = (state = initialState, action) => {
     case EDIT_USER_DATA_FAILED: {
       return {
         ...state,
-        editData: false,
+        editingData: false,
         errorMessage: action.payload
       };
     }

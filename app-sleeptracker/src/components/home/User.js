@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchUser, addData, deleteData } from "../actions";
+import { fetchUser, addData, deleteData, editData } from "../../actions";
 import { Link } from "react-router-dom";
 
 class User extends Component {
@@ -17,7 +17,7 @@ class User extends Component {
   componentDidMount() {
     // call our action to get data here from index (action)
     this.props.fetchUser();
-    console.log(fetchUser);
+    // console.log(fetchUser);
   }
 
   changeHandle = event => {
@@ -41,7 +41,10 @@ class User extends Component {
     });
   };
 
-  deleteData = id => {};
+  deleteData = id => {
+    this.props.deleteData(id);
+    this.setState({});
+  };
 
   render() {
     const {
@@ -134,11 +137,15 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     fetchingUser: state.fetchingUser,
-    deletingData: state.deletingData
+    deletingData: state.deletingData,
+    editingData: state.editingData,
+    start: state.start,
+    end: state.end,
+    hour: state.start + state.end
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchUser, addData, deleteData }
+  { fetchUser, addData, deleteData, editData }
 )(User);
