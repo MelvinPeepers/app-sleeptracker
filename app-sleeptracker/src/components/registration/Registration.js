@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { signup } from "@/actions";
+import { signup } from "../../actions";
 import { Link } from "react-router-dom";
 
 class Reg extends Component {
