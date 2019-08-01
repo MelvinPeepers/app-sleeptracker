@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchUser, addData, deleteData, editData } from "../../actions";
+import { fetchUser, addData, deleteData, editData } from "@/actions";
 import { Link } from "react-router-dom";
 
 class User extends Component {
