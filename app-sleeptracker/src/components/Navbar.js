@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import logo from "../Assets/zzz-white.png"
-import banner from "../Assets/banner.jpg"
+import logo from "../Assets/zzz-white.png";
+import banner from "../Assets/banner.jpg";
 
 const Header = styled.header`
   font-family: Sans-Serif;
@@ -22,7 +23,7 @@ const Nav = styled.div`
     display: flex;
     flex-grow: 1;
     a {
-      font-size: 2rem;
+      font-size: 1rem;
       display: flex;
       padding: 0;
       text-decoration: none;
@@ -38,6 +39,7 @@ const Nav = styled.div`
     }
   }
   #menu {
+      display: flex;
     .nav-items {
       display: flex;
       height: 3rem;
@@ -75,8 +77,8 @@ const Nav = styled.div`
       }
     }
     @media only screen and (max-width: 800px) {
-        display: none !important;
-  }
+      display: none !important;
+    }
   }
 
   #menuToggle {
@@ -89,7 +91,8 @@ const Nav = styled.div`
     -webkit-user-select: none;
     user-select: none;
     @media only screen and (min-width: 800px) {
-        display: none !important;}
+      display: none !important;
+    }
     a {
       text-decoration: none;
       color: #232323;
@@ -196,20 +199,16 @@ class NavBar extends React.Component {
           </div>
           <div id="menu">
             <div className="nav-items">
-              <a href="what_is_sleep_tracker.html">What is Sleep Tracker?</a>
-              <a href="why-sleep.html">Why Sleep?</a>
-              <a href="who-are-we.html">Who are we?</a>
+              <a href="https://www-sleeptracker-july.netlify.com/what_is_sleep_tracker.html">What is Sleep Tracker?</a>
+              <a href="https://www-sleeptracker-july.netlify.com/why-sleep.html">Why Sleep?</a>
+              <a href="https://www-sleeptracker-july.netlify.com/who-are-we.html">Who are we?</a>
             </div>
             <div className="login">
               <button>
-                <a href="https://app-sleeptracker-july.netlify.com/signup">
-                  Sign Up
-                </a>
+                <Link to="/signup">Sign Up</Link>
               </button>
               <button>
-                <a href="https://app-sleeptracker-july.netlify.com/login">
-                  Log In
-                </a>
+                <Link to="/login">Log In</Link>
               </button>
             </div>
           </div>
@@ -220,20 +219,16 @@ class NavBar extends React.Component {
             <span />
             <div className="mobile-menu">
               <div className="nav-items">
-                <a href="what_is_sleep_tracker.html">What is Sleep Tracker?</a>
-                <a href="why-sleep.html">Why Sleep?</a>
-                <a href="who-are-we.html">Who are we?</a>
+                <a href="https://www-sleeptracker-july.netlify.com/what_is_sleep_tracker.html">What is Sleep Tracker?</a>
+                <a href="https://www-sleeptracker-july.netlify.com/why-sleep.html">Why Sleep?</a>
+                <a href="https://www-sleeptracker-july.netlify.com/who-are-we.html">Who are we?</a>
               </div>
               <div className="login">
                 <button>
-                  <a href="https://app-sleeptracker-july.netlify.com/signup">
-                    Sign Up
-                  </a>
+                  <Link to="/signup">Sign Up</Link>
                 </button>
                 <button>
-                  <a href="https://app-sleeptracker-july.netlify.com/login">
-                    Log In
-                  </a>
+                  <Link to="/login">Log In</Link>
                 </button>
               </div>
             </div>
