@@ -1,19 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { fetchUser, addData, deleteData, editData } from "../../actions";
 import { Link } from "react-router-dom";
-import SleepData from "./SleepData";
+// import SleepData from "./SleepData";
 
 class User extends Component {
-  state = {
-    userId: localStorage.getItem("id"),
-    start: "",
-    end: "",
-    hours: 0,
-    bed_t_rating: "",
-    work_t_rating: "",
-    average_rating: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      userId: localStorage.getItem("id"),
+      start: "",
+      end: "",
+      hours: 0,
+      bed_t_rating: "",
+      work_t_rating: "",
+      average_rating: ""
+    };
+  }
 
   componentDidMount() {
     // call our action to get data here from index (action)
@@ -40,6 +44,16 @@ class User extends Component {
       work_t_rating: "",
       average_rating: ""
     });
+    this.forceUpdate();
+    console.log("force");
+  };
+
+  handleDelete = id => {
+    this.props.deleteData(id);
+  };
+
+  handleEdit = (event, id) => {
+    event.preventDefault();
   };
 
   render() {
@@ -50,7 +64,9 @@ class User extends Component {
       work_t_rating,
       average_rating
     } = this.state;
+
     const { user } = this.props;
+
     return (
       <div>
         <h2>Welcome {user.username}</h2>
@@ -87,7 +103,7 @@ class User extends Component {
           {/* {console.log(this.state)} */}
           <br />
           <p>Select between 1 - 5, 5 being Highest</p>
-          <p>My Rating {bed_t_rating}</p>
+          <p>Current Rating {bed_t_rating}</p>
           <h4>Work Rating</h4>
           <select
             name='work_t_rating'
@@ -101,7 +117,7 @@ class User extends Component {
             <option value='5'>5</option>
           </select>
           <p>Select between 1 - 5, 5 being Highest</p>
-          <p>My Rating {work_t_rating}</p>
+          <p>Current Rating {work_t_rating}</p>
           <br />
           <h4>Average Rating</h4>
           <select
@@ -119,13 +135,30 @@ class User extends Component {
           <p>Select between 1 - 5, 5 being Highest</p>
           <p>My Rating {average_rating}</p>
           <button className='add-btn' onClick={this.addData}>
-            Add data
+            Add Ratings
           </button>
           <br />
           <Link to='/home'>Home</Link>
         </form>
         <div>
-          <SleepData />
+          <div>
+            <h1>Sleep Data</h1>
+            {user.sleepData
+              ? user.sleepData.map(sleep => (
+                  <p key={sleep.id}>
+                    {sleep.bed_t_rating} <br /> {sleep.work_t_rating} <br />
+                    {sleep.average_rating}
+                    <br /> {sleep.start}
+                    <br /> {sleep.end}
+                    <br />
+                    <button onClick={() => this.handleDelete(sleep.id)}>
+                      Delete
+                    </button>
+                    <button>Edit</button>
+                  </p>
+                ))
+              : ""}
+          </div>
         </div>
       </div>
     );
@@ -135,16 +168,18 @@ class User extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    fetchingUser: state.fetchingUser,
-    deletingData: state.deletingData,
-    editingData: state.editingData,
-    start: state.start,
-    end: state.end,
-    hour: state.start + state.end
+    fetchingUser: state.fetchingUser
+    // deletingData: state.deletingData,
+    // editingData: state.editingData,
+    // start: state.start,
+    // end: state.end,
+    // hour: state.start + state.end
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchUser, addData, deleteData, editData }
-)(User);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { fetchUser, addData, deleteData, editData }
+  )(User)
+);

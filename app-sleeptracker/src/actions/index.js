@@ -116,7 +116,7 @@ export function addData(newData) {
         { headers }
       )
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         dispatch({ type: ADD_USER_DATA_SUCCESS, payload: response.data });
       })
       .catch(error => {
