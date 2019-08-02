@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchUser, addData, deleteData, editData } from "../../actions";
 import { Link } from "react-router-dom";
+import SleepData from "./SleepData";
 
 class User extends Component {
   state = {
@@ -39,11 +40,6 @@ class User extends Component {
       work_t_rating: "",
       average_rating: ""
     });
-  };
-
-  deleteData = id => {
-    this.props.deleteData(id);
-    this.setState({});
   };
 
   render() {
@@ -128,6 +124,9 @@ class User extends Component {
           <br />
           <Link to='/home'>Home</Link>
         </form>
+        <div>
+          <SleepData />
+        </div>
       </div>
     );
   }

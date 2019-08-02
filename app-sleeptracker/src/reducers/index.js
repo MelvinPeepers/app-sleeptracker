@@ -29,7 +29,9 @@ const initialState = {
   editingData: false,
   errorMessage: null,
   start: 0,
-  end: 0
+  end: 0,
+  sleepData: "",
+  deleteSuccess: 0
 };
 
 const reducer = (state = initialState, action) => {
@@ -78,8 +80,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingUser: true,
-        start: action.payload,
-        end: action.payload,
+        // start: action.payload,
+        // end: action.payload,
         errorMessage: null
       };
     }
@@ -98,21 +100,18 @@ const reducer = (state = initialState, action) => {
       };
     }
     case ADD_USER_DATA: {
-      // console.log("add data user");
+      // console.log();
       return {
         ...state,
-        state: action.payload,
-        end: action.payload,
-        fetchingUser: true,
-        errorMessage: false
+        sleepData: true
       };
     }
     case ADD_USER_DATA_SUCCESS: {
       // console.log("add data success");
       return {
         ...state,
-        fetchingUser: false,
-        user: action.payload,
+        sleepData: false,
+        // user: action.payload,
         errorMessage: ""
       };
     }
@@ -120,7 +119,7 @@ const reducer = (state = initialState, action) => {
       // console.log("add data failed");
       return {
         ...state,
-        fetchingUser: false,
+        sleepData: false,
         errorMessage: action.payload
       };
     }
@@ -134,7 +133,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         deletingData: false,
-        user: action.payload,
         errorMessage: ""
       };
     }
