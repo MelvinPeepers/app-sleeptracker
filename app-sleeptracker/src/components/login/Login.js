@@ -40,37 +40,53 @@ class Login extends React.Component {
     const { username, password } = this.state;
     const { loggingIn, errorMessage } = this.props;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h2>Login to your Sleep Tracker account</h2>
+      <div className='login-reg-form'>
+        <h2 style={loginstyle}>Login to your Sleep Tracker account</h2>
         {errorMessage && <p className='errorMessage'>{errorMessage}</p>}
-        <input
-          type='text'
-          name='username'
-          placeholder='Username'
-          value={username}
-          onChange={this.handleChange}
-        />
-        <br />
-        <input
-          type='password'
-          name='password'
-          placeholder='Password'
-          value={password}
-          onChange={this.handleChange}
-        />
-        <br />
-        {loggingIn ? (
-          <p>Logging in...</p>
-        ) : (
-          <button type='submit'>Login</button>
-        )}
-        <br />
-        <p>Need an account?</p>
-        <Link to='/signup'>Register here</Link>
-      </form>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type='text'
+            name='username'
+            placeholder='Username'
+            value={username}
+            onChange={this.handleChange}
+          />
+          <br />
+          <input
+            type='password'
+            name='password'
+            placeholder='Password'
+            value={password}
+            onChange={this.handleChange}
+          />
+          <br />
+          {loggingIn ? (
+            <p>Logging in...</p>
+          ) : (
+            <button className='btn-login' type='submit'>
+              Login
+            </button>
+          )}
+          <br />
+          <p>Need an account?</p>
+          <Link to='/signup' style={linkstyle}>
+            Register here
+          </Link>
+        </form>
+      </div>
     );
   }
 }
+
+const loginstyle = {
+  color: "black"
+};
+
+const linkstyle = {
+  color: "#2e4482",
+  textDecoration: "none",
+  margin: "20px, 0, 0"
+};
 
 const mapStateToProps = state => {
   return {

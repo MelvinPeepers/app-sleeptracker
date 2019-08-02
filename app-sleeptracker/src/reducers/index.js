@@ -100,7 +100,6 @@ const reducer = (state = initialState, action) => {
       };
     }
     case ADD_USER_DATA: {
-      // console.log();
       return {
         ...state,
         sleepData: true

@@ -41,9 +41,9 @@ class Reg extends Component {
     const { username, password, birthdate } = this.state;
     const { signingUp } = this.props;
     return (
-      <div>
+      <div className='login-reg-form'>
         <form onSubmit={this.handleSubmitReg}>
-          <h2>Register a Sleep Tracker account</h2>
+          <h2 style={loginstyle}>Register a Sleep Tracker account</h2>
           <input
             type='text'
             name='username'
@@ -71,16 +71,30 @@ class Reg extends Component {
           {signingUp ? (
             <p>Creating account...</p>
           ) : (
-            <button type='submit'>Signup</button>
+            <button className='btn-login' type='submit'>
+              Signup
+            </button>
           )}
           <br />
           <p>Already have an account?</p>
-          <Link to='/login'>Login</Link>
+          <Link to='/login' style={linkstyle}>
+            Have an account? Go to Login
+          </Link>
         </form>
       </div>
     );
   }
 }
+
+const loginstyle = {
+  color: "black"
+};
+
+const linkstyle = {
+  color: "#2e4482",
+  textDecoration: "none",
+  margin: "20px, 0, 0"
+};
 
 const mapStateToProps = state => {
   return {
