@@ -6,14 +6,12 @@ import Login from "./components/login/Login";
 import Registration from "./components/registration/Registration";
 import User from "./components/home/User";
 import Home from "./components/home/Home";
-import NavBar from "./components/Navbar";
 
 import "./App.css";
 
 function App() {
   return (
     <div className='App'>
-      <NavBar/>
       <PrivateRoute exact path='/' component={Dashboard} />
       <PrivateRoute exact path='/user' component={User} />
       <PrivateRoute exact path='/home' component={Home} />
