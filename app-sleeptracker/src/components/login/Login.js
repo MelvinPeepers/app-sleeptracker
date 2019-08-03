@@ -49,6 +49,7 @@ class Login extends React.Component {
             name='username'
             placeholder='Username'
             value={username}
+            required
             onChange={this.handleChange}
           />
           <br />
@@ -57,6 +58,7 @@ class Login extends React.Component {
             name='password'
             placeholder='Password'
             value={password}
+            required
             onChange={this.handleChange}
           />
           <br />

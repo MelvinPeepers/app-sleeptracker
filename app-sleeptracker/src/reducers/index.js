@@ -18,6 +18,7 @@ import {
   EDIT_USER_DATA_SUCCESS,
   EDIT_USER_DATA_FAILED
 } from "../actions";
+import { isDeclareModule } from "@babel/types";
 
 const initialState = {
   user: [],

@@ -38,6 +38,15 @@ h3 {
   align-items: center;
 }
 
+input {
+  margin-top: 16px;
+  margin-right: 8px;
+}
+
+input::placeholder {
+  color: #2e4482;
+}
+
 .btn-login {
   background-color: #2e4482;
   color: white;
