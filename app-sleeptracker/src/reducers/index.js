@@ -13,8 +13,11 @@ import {
   ADD_USER_DATA_FAILED,
   DELETE_USER_DATA,
   DELETE_USER_DATA_SUCCESS,
-  DELETE_USER_DATA_FAILED
-} from "../components/actions";
+  DELETE_USER_DATA_FAILED,
+  EDIT_USER_DATA,
+  EDIT_USER_DATA_SUCCESS,
+  EDIT_USER_DATA_FAILED
+} from "../actions";
 
 const initialState = {
   user: [],
@@ -23,7 +26,12 @@ const initialState = {
   signingUp: false,
   addingData: false,
   deletingData: false,
-  errorMessage: null
+  editingData: false,
+  errorMessage: null,
+  start: 0,
+  end: 0,
+  sleepData: "",
+  deleteSuccess: 0
 };
 
 const reducer = (state = initialState, action) => {
@@ -72,6 +80,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingUser: true,
+        // start: action.payload,
+        // end: action.payload,
         errorMessage: null
       };
     }
@@ -90,19 +100,17 @@ const reducer = (state = initialState, action) => {
       };
     }
     case ADD_USER_DATA: {
-      // console.log("add data user");
       return {
         ...state,
-        fetchingUser: true,
-        errorMessage: false
+        sleepData: true
       };
     }
     case ADD_USER_DATA_SUCCESS: {
       // console.log("add data success");
       return {
         ...state,
-        fetchingUser: false,
-        user: action.payload,
+        sleepData: false,
+        // user: action.payload,
         errorMessage: ""
       };
     }
@@ -110,7 +118,7 @@ const reducer = (state = initialState, action) => {
       // console.log("add data failed");
       return {
         ...state,
-        fetchingUser: false,
+        sleepData: false,
         errorMessage: action.payload
       };
     }
@@ -124,7 +132,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         deletingData: false,
-        user: action.payload,
         errorMessage: ""
       };
     }
@@ -132,6 +139,27 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         deletingData: false,
+        errorMessage: action.payload
+      };
+    }
+    case EDIT_USER_DATA: {
+      return {
+        ...state,
+        editingData: true
+      };
+    }
+    case EDIT_USER_DATA_SUCCESS: {
+      return {
+        ...state,
+        editingData: false,
+        user: action.payload,
+        errorMessage: action.payload
+      };
+    }
+    case EDIT_USER_DATA_FAILED: {
+      return {
+        ...state,
+        editingData: false,
         errorMessage: action.payload
       };
     }

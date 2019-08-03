@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchUser } from "../actions";
+import { fetchUser } from "../../actions";
 
 class Home extends Component {
   state = {
@@ -26,11 +26,19 @@ class Home extends Component {
           <p>This is how you slept this week {average_rating}</p>
           {console.log(this.state)}
         </div>
-        <Link to='/user'>User Profile</Link>
+        <Link to='/user' style={linkstyle}>
+          Go to User Profile
+        </Link>
       </div>
     );
   }
 }
+
+const linkstyle = {
+  color: "#2e4482",
+  textDecoration: "none",
+  margin: "20px"
+};
 
 const mapStateToProps = state => {
   return {

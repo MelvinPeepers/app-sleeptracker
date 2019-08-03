@@ -1,5 +1,87 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
+}
+
+h3,
+h4,
+h5,
+h6,
+p {
+  color: white;
+}
+
+h2 {
+  color: #fff;
+  font-size: 1.9rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+.login-reg-form {
+  padding: 32px 0;
+  background: #fff;
+  border-radius: 4px;
+  /* height: 300px; */
+  margin: 1rem auto;
+  position: relative;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-login {
+  background-color: #2e4482;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  margin-top: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.add-btn {
+  background-color: #FOFOFO;
+  color: #000;
+  border: none;
+  padding: 15px 32px;
+  margin-top: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.btn-user {
+  margin-right: 5px;
+}
+
+.delete-btn {
+  background-color: red;
+  color: #000;
+  border: none;
+  width: 80px;
+  height: 40px;
+  margin-top: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.edit-btn {
+  background-color: #2e4482;
+  color: #fff;
+  border: none;
+  width: 80px;
+  height: 40px;
+  margin-top: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
 }
 
 .App-logo {
@@ -24,13 +106,18 @@
 }
 
 .errorMessage {
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: red;
   font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.linkstyle {
+  margin-top: 20px;
 }
 
 form {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 @keyframes App-logo-spin {

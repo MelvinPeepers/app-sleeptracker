@@ -4,9 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import "./index.css";
+// import "./index.css";
 import App from "./App";
 import reducer from "./reducers";
+import NavBar from "./components/Navbar";
 
 const logger = store => next => action => {
   console.log("Prev State", store.getState());
@@ -34,6 +35,7 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
+      <NavBar />
       <App />
     </BrowserRouter>
   </Provider>,
