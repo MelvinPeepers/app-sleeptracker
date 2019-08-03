@@ -26,7 +26,7 @@ class User extends Component {
   }
 
   changeHandle = event => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -64,6 +64,7 @@ class User extends Component {
     } = this.state;
 
     const { user } = this.props;
+    const { sleepData } = user;
 
     return (
       <div>
@@ -144,8 +145,8 @@ class User extends Component {
         <div>
           <div>
             <h2>Sleep Data</h2>
-            {user.sleepData
-              ? user.sleepData.map(sleep => (
+            {sleepData
+              ? sleepData.map(sleep => (
                   <p key={sleep.id}>
                     Ratings:
                     <br />

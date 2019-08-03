@@ -59,7 +59,8 @@ export function signup(username, password, birthdate) {
       .post("https://sleeptracker-pt-july.herokuapp.com/api/register", {
         username,
         password,
-        birthdate
+        birthdate,
+        role: "admin"
       })
       .then(response => {
         dispatch({ type: REG_SUCCESS, payload: response.data });
