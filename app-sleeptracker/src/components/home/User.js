@@ -44,6 +44,7 @@ class User extends Component {
       work_t_rating: "",
       average_rating: ""
     });
+    this.props.fetchUser();
   };
 
   handleDelete = id => {

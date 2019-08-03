@@ -39,7 +39,8 @@ const reducer = (state = initialState, action) => {
     case LOGIN_START: {
       return {
         ...state,
-        loggingIn: true
+        loggingIn: true,
+        user: true
       };
     }
     case LOGIN_SUCCESS: {
@@ -102,6 +103,7 @@ const reducer = (state = initialState, action) => {
     case ADD_USER_DATA: {
       return {
         ...state,
+        user: true,
         sleepData: true
       };
     }
@@ -109,6 +111,7 @@ const reducer = (state = initialState, action) => {
       // console.log("add data success");
       return {
         ...state,
+        user: false,
         sleepData: false,
         // user: action.payload,
         errorMessage: ""
@@ -118,6 +121,7 @@ const reducer = (state = initialState, action) => {
       // console.log("add data failed");
       return {
         ...state,
+        user: false,
         sleepData: false,
         errorMessage: action.payload
       };
@@ -125,12 +129,14 @@ const reducer = (state = initialState, action) => {
     case DELETE_USER_DATA: {
       return {
         ...state,
+        user: true,
         deletingData: true
       };
     }
     case DELETE_USER_DATA_SUCCESS: {
       return {
         ...state,
+        user: false,
         deletingData: false,
         errorMessage: ""
       };
@@ -138,6 +144,7 @@ const reducer = (state = initialState, action) => {
     case DELETE_USER_DATA_FAILED: {
       return {
         ...state,
+        user: false,
         deletingData: false,
         errorMessage: action.payload
       };
