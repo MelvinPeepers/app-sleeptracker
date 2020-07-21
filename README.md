@@ -3,21 +3,23 @@
 Created the frontend for a Sleep Tracker app using an API that was supplied by an instructor.
 
 Implemented signup and login pages
-
-## Goal
-
-Create an app to log hours of sleep in 1 week.
+Created app to log hours of sleep
 
 ## Skills:
 
-JavaScript,
-React,
+JavaScript
+React
 Redux
 
-## Supplied API:
+## API
 
 http://sleeptracker.surge.sh
 
-## Website
+## Goal:
+
+Implemented signup and login pages
+Created app to log hours of sleep
+
+## Live Site
 
 https://app-sleeptracker-july.netlify.app
