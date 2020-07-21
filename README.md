@@ -10,8 +10,8 @@ Create an app to log hours of sleep in 1 week.
 
 ## Skills:
 
-JavaScript
-React
+JavaScript,
+React,
 Redux
 
 ## Supplied API:
