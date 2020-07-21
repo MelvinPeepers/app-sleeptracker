@@ -3,7 +3,10 @@
 Created the frontend for a Sleep Tracker app using an API that was supplied by an instructor.
 
 Implemented signup and login pages
-Created app to log hours of sleep
+
+## Goal
+
+Create an app to log hours of sleep in 1 week.
 
 ## Skills:
 
